@@ -43,18 +43,16 @@ Built for solo developers who build websites with AI agents and want to monetize
 
 > **Note**: While in "Testing" mode, only test users you add can authenticate. This is fine for personal use — no Google review required.
 
-### 2. Install & Build
+### 2. Install
 
 ```bash
-cd adsense-mcp
-npm install
-npm run build
+npm install -g adsense-mcp
 ```
 
 ### 3. Authenticate
 
 ```bash
-node dist/index.js auth /path/to/downloaded-credentials.json
+adsense-mcp auth /path/to/downloaded-credentials.json
 ```
 
 This will:
@@ -74,8 +72,8 @@ Add to your project's `.mcp.json`:
 {
   "mcpServers": {
     "adsense": {
-      "command": "node",
-      "args": ["/absolute/path/to/adsense-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "adsense-mcp"]
     }
   }
 }
@@ -87,8 +85,8 @@ Or add globally in `~/.claude/settings.json`:
 {
   "mcpServers": {
     "adsense": {
-      "command": "node",
-      "args": ["/absolute/path/to/adsense-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "adsense-mcp"]
     }
   }
 }
@@ -102,8 +100,8 @@ Add to `.cursor/mcp.json` in your project root:
 {
   "mcpServers": {
     "adsense": {
-      "command": "node",
-      "args": ["/absolute/path/to/adsense-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "adsense-mcp"]
     }
   }
 }
@@ -117,8 +115,8 @@ Add to `~/.codeium/windsurf/mcp_config.json`:
 {
   "mcpServers": {
     "adsense": {
-      "command": "node",
-      "args": ["/absolute/path/to/adsense-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "adsense-mcp"]
     }
   }
 }
@@ -365,14 +363,14 @@ AI:   1. Calls list_ad_units → gets your units and slot IDs
 Re-run the auth flow:
 
 ```bash
-node dist/index.js auth
+adsense-mcp auth
 ```
 
 If tokens exist but are invalid, delete them and re-authenticate:
 
 ```bash
 rm ~/.adsense-mcp/tokens.json
-node dist/index.js auth
+adsense-mcp auth
 ```
 
 ### "AdSense Management API has not been used" error
@@ -396,7 +394,7 @@ Delete the saved tokens and re-authenticate:
 
 ```bash
 rm ~/.adsense-mcp/tokens.json
-node dist/index.js auth
+adsense-mcp auth
 ```
 
 ## Security
